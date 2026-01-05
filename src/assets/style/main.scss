@@ -1,0 +1,12 @@
+// Reset SCSS
+@use './lib/reset.scss';
+
+// Variables SCSS
+@use './variables/color.scss';
+
+// Base SCSS
+@use './base/general.scss';
+
+// Shared SCSS
+@use './shared/typography.scss';
+@use './shared/text-color.scss';
