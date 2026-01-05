@@ -1,8 +1,9 @@
-// Reset SCSS
-@use './lib/reset.scss';
+// Normalize SCSS
+@use './lib/normalize.scss';
 
 // Variables SCSS
 @use './variables/color.scss';
+@use './variables/font-size.scss';
 
 // Base SCSS
 @use './base/general.scss';
