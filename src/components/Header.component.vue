@@ -2,14 +2,34 @@
   <header class="header">
     <img class="header__logo" src="../assets/images/horsenow-logo.svg" alt="horsenow" />
     <nav class="header__nav">
-      <Button variant="primary">Generate Program</Button>
-      <Button variant="secondary">Start</Button>
+      <Button variant="primary" @click="handleGenerateProgram">Generate Program</Button>
+      <Button variant="secondary" @click="toggleStartPause">
+        {{ isRacing ? (isPaused ? 'Resume' : 'Pause') : 'Start' }}
+      </Button>
     </nav>
   </header>
 </template>
 
 <script setup lang="ts">
-import Button from './Button.component.vue'
+import { computed } from 'vue'
+import { useStore } from '@/store'
+import Button from '@/components/Button.component.vue'
+
+const store = useStore()
+const isRacing = computed(() => store.getters.isRacing)
+const isPaused = computed(() => store.state.isPaused)
+
+const handleGenerateProgram = () => {
+  store.dispatch('generateNewProgram')
+}
+
+const handleStartRace = () => {
+  store.dispatch('startCurrentRace')
+}
+
+const toggleStartPause = () => {
+  store.dispatch('togglePause')
+}
 </script>
 
 <style scoped lang="scss">

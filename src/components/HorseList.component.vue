@@ -2,7 +2,7 @@
   <div class="horse-list">
     <h2 class="horse-list__title">HORSE LIST</h2>
     <div class="horse-list__table-wrapper">
-      <table class="horse-list__table">
+      <table class="horse-list__table" v-if="horses.length > 0">
         <thead>
           <tr>
             <th class="horse-list__th horse-list__th--name">Name</th>
@@ -12,41 +12,26 @@
         <tbody class="horse-list__table-body">
           <tr v-for="horse in horses" :key="horse.id" class="horse-list__row">
             <td class="horse-list__td horse-list__td--name">
-              <span class="horse-list__color-indicator" :style="{ backgroundColor: horse.color }" />
+              <span class="horse-list__color-indicator" :style="{ backgroundColor: horse.colorHex }" />
               {{ horse.name }}
             </td>
-            <td class="horse-list__td horse-list__td--condition">
-              {{ horse.condition }}
-            </td>
+            <td class="horse-list__td horse-list__td--condition">{{ horse.condition }}%</td>
           </tr>
         </tbody>
       </table>
+      <div v-else class="horse-list__empty-message">No horses found. Please generate a program first.</div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { HORSE_NAMES, HORSE_COLORS } from '@/constants/horse.constant'
+import { useStore } from '@/store'
+import { computed } from 'vue'
 
-export interface Horse {
-  id: number
-  name: string
-  color: string
-  colorName: string
-  condition: number
-}
+const store = useStore()
 
-const generateHorses = (): Horse[] => {
-  return HORSE_NAMES.map((name, index) => ({
-    id: index + 1,
-    name,
-    color: HORSE_COLORS[index].colorHex,
-    colorName: HORSE_COLORS[index].colorName,
-    condition: Math.floor(Math.random() * 100) + 1,
-  }))
-}
-
-const horses = generateHorses()
+const horses = computed(() => store.state.allHorses)
 </script>
 
 <style scoped lang="scss">
@@ -138,6 +123,12 @@ const horses = generateHorses()
     width: 0.625rem;
     height: 0.625rem;
     border-radius: 50%;
+  }
+
+  &__empty-message {
+    text-align: center;
+    padding: 0.75rem 1rem;
+    color: var(--color-gray-600);
   }
 }
 </style>
