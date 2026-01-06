@@ -20,7 +20,7 @@ export interface RaceResult {
 
 export interface State {
   allHorses: Horse[]
-  program: Race[]
+  programList: Race[]
   results: RaceResult[]
   currentRoundNo: number
   isRacing: boolean

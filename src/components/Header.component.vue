@@ -4,7 +4,7 @@
     <nav class="header__nav">
       <Button variant="primary" @click="handleGenerateProgram">Generate Program</Button>
       <Button variant="secondary" @click="toggleStartPause">
-        {{ isRacing ? (isPaused ? 'Resume' : 'Pause') : 'Start' }}
+        {{ isRacing ? (isPaused ? 'Resume' : 'Pause') : 'Start Race' }}
       </Button>
     </nav>
   </header>
@@ -28,7 +28,11 @@ const handleStartRace = () => {
 }
 
 const toggleStartPause = () => {
-  store.dispatch('togglePause')
+  if (isRacing.value) {
+    store.dispatch('togglePause')
+  } else {
+    store.dispatch('startCurrentRace')
+  }
 }
 </script>
 

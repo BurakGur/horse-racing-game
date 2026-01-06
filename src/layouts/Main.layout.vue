@@ -21,6 +21,9 @@
 <script setup lang="ts">
 import Header from '../components/Header.component.vue'
 import HorseList from '../components/HorseList.component.vue'
+import ProgramList from '../components/ProgramList.component.vue'
+import ResultList from '../components/ResultList.component.vue'
+import RaceTrack from '../components/RaceTrack.component.vue'
 </script>
 
 <style scoped lang="scss">
@@ -36,17 +39,12 @@ import HorseList from '../components/HorseList.component.vue'
   flex-direction: row;
   overflow: hidden;
   flex: 1;
-}
-
-.main-layout__content {
-  display: flex;
-  flex-direction: column;
-  flex: 1;
+  padding: 0 1.5rem 1.5rem;
+  gap: 1rem;
 }
 
 .main__horse-list {
   max-width: 25%;
-  margin: 0 1.5rem 1rem;
   flex: 1;
   max-height: 100%;
 }
@@ -56,10 +54,12 @@ import HorseList from '../components/HorseList.component.vue'
 }
 
 .main__program-list {
-  flex: 15%;
+  max-width: 15%;
+  flex: 1;
 }
 
 .main__result-list {
-  flex: 15%;
+  max-width: 15%;
+  flex: 1;
 }
 </style>

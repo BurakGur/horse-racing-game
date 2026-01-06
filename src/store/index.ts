@@ -10,7 +10,7 @@ export const key: InjectionKey<Store<State>> = Symbol()
 export const store = createStore<State>({
   state: {
     allHorses: [],
-    program: [],
+    programList: [],
     results: [],
     currentRoundNo: 1,
     isRacing: false,
@@ -20,8 +20,8 @@ export const store = createStore<State>({
 
   getters: {
     currentRace(state: State): Race | undefined {
-      if (!state.program.length || state.currentRoundNo > 6) return undefined
-      return state.program.find((r) => r.round === state.currentRoundNo)
+      if (!state.programList.length || state.currentRoundNo > 6) return undefined
+      return state.programList.find((r) => r.round === state.currentRoundNo)
     },
 
     isGameFinished(state: State): boolean {
@@ -33,8 +33,8 @@ export const store = createStore<State>({
     SET_HORSES(state: State, horses: Horse[]) {
       state.allHorses = horses
     },
-    SET_PROGRAM(state: State, program: Race[]) {
-      state.program = program
+    SET_PROGRAM_LIST(state: State, programList: Race[]) {
+      state.programList = programList
       state.isProgramGenerated = true
     },
     SET_RACING_STATUS(state: State, status: boolean) {
@@ -49,7 +49,7 @@ export const store = createStore<State>({
     },
     RESET_GAME(state: State) {
       state.allHorses = []
-      state.program = []
+      state.programList = []
       state.results = []
       state.currentRoundNo = 1
       state.isProgramGenerated = false
@@ -67,18 +67,18 @@ export const store = createStore<State>({
       const horses: Horse[] = generateHorseList()
       commit('SET_HORSES', horses)
 
-      const program: Race[] = RACE_DISTANCES.map((distance, index) => {
-        const shuffled = [...horses].sort(() => 0.5 - Math.random())
-        const selectedHorses = shuffled.slice(0, 10)
+      const programList: Race[] = RACE_DISTANCES.map((distance, index) => {
+        const shuffledHorsesList = [...horses].sort(() => 0.5 - Math.random())
+        const selectedHorsesList = shuffledHorsesList.slice(0, 10)
 
         return {
           round: index + 1,
           distance: distance,
-          horses: selectedHorses,
+          horses: selectedHorsesList,
         }
       })
 
-      commit('SET_PROGRAM', program)
+      commit('SET_PROGRAM_LIST', programList)
     },
 
     startCurrentRace({ commit }: { commit: Commit }) {
