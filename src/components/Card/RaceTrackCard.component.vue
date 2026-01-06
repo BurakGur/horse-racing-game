@@ -78,8 +78,10 @@ const finishRace = () => {
 }
 </script>
 
-<style scoped>
-.race-track-card__lanes {
-  padding: 10px;
+<style scoped lang="scss">
+.race-track-card {
+  &__lanes {
+    padding: 10px;
+  }
 }
 </style>

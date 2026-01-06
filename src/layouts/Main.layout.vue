@@ -2,16 +2,16 @@
   <div class="main-layout">
     <Header />
     <div class="main-layout__container">
-      <div class="main__horse-list">
+      <div class="main-layout__horse-list">
         <HorseList />
       </div>
-      <div class="main__race-track">
+      <div class="main-layout__race-track">
         <RaceTrackCard />
       </div>
-      <div class="main__program-list">
+      <div class="main-layout__program-list">
         <ProgramList />
       </div>
-      <div class="main__result-list">
+      <div class="main-layout__result-list">
         <ResultList />
       </div>
     </div>
@@ -39,54 +39,54 @@ import RaceTrackCard from '../components/Card/RaceTrackCard.component.vue'
     height: auto;
     max-height: none;
   }
-}
 
-.main-layout__container {
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
-  flex: 1;
-  padding: 0 1.5rem 1.5rem;
-  gap: 1rem;
+  &__container {
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    flex: 1;
+    padding: 0 1.5rem 1.5rem;
+    gap: 1rem;
 
-  @include respond-to(md) {
-    flex-direction: column;
-    overflow: scroll;
+    @include respond-to(md) {
+      flex-direction: column;
+      overflow: scroll;
+    }
   }
-}
 
-.main__horse-list {
-  max-width: 25%;
-  flex: 1;
+  &__horse-list {
+    max-width: 25%;
+    flex: 1;
 
-  @include respond-to(md) {
-    max-width: 100%;
+    @include respond-to(md) {
+      max-width: 100%;
+    }
   }
-}
 
-.main__race-track {
-  flex: 1;
+  &__race-track {
+    flex: 1;
 
-  @include respond-to(md) {
-    width: 100%;
+    @include respond-to(md) {
+      width: 100%;
+    }
   }
-}
 
-.main__program-list {
-  max-width: 15%;
-  flex: 1;
+  &__program-list {
+    max-width: 15%;
+    flex: 1;
 
-  @include respond-to(md) {
-    max-width: 100%;
+    @include respond-to(md) {
+      max-width: 100%;
+    }
   }
-}
 
-.main__result-list {
-  max-width: 15%;
-  flex: 1;
+  &__result-list {
+    max-width: 15%;
+    flex: 1;
 
-  @include respond-to(md) {
-    max-width: 100%;
+    @include respond-to(md) {
+      max-width: 100%;
+    }
   }
 }
 </style>

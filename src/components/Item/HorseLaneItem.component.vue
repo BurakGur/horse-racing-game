@@ -46,7 +46,7 @@ const onFinish = () => {
 }
 </script>
 
-<style scoped>
+<style scoped lang="scss">
 .horse-lane-item {
   display: flex;
   align-items: flex-start;
@@ -54,58 +54,68 @@ const onFinish = () => {
   background-color: var(--color-gray-50);
   border-bottom: 1px dotted var(--color-gray-200);
   height: 4rem;
-}
 
-.horse-lane-item__info {
-  background: var(--color-gray-800);
-  color: var(--color-white);
-  width: 1.5rem;
-  height: 1.5rem;
-  border-radius: 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: var(--text-xs);
-  font-weight: 700;
-  margin-top: 0.5rem;
-}
+  &__info {
+    background: var(--color-gray-800);
+    color: var(--color-white);
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 1.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--text-xs);
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
 
-.horse-lane-item__track {
-  flex-grow: 1;
-  position: relative;
-  height: 100%;
-  margin-right: 1.5rem;
-}
+  &__track {
+    flex-grow: 1;
+    position: relative;
+    height: 100%;
+    margin-right: 1.5rem;
+  }
 
-.horse-lane-item__finish-line {
-  position: absolute;
-  right: 0;
-  top: 0;
-  bottom: 0;
-  height: 100%;
-  width: 0.25rem;
-  background: repeating-linear-gradient(
-    45deg,
-    var(--color-gray-900),
-    var(--color-gray-900) 0.1rem,
-    transparent 0.1rem,
-    transparent 0.2rem
-  );
-  z-index: 1;
-}
+  &__finish-line {
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 0.25rem;
+    background: repeating-linear-gradient(
+      45deg,
+      var(--color-gray-900),
+      var(--color-gray-900) 0.1rem,
+      transparent 0.1rem,
+      transparent 0.2rem
+    );
+    z-index: 1;
+  }
 
-.horse-lane-item__horse-runner {
-  position: absolute;
-  left: 0.25rem;
-  transform: translateX(0);
-  height: 100%;
-}
+  &__horse-runner {
+    position: absolute;
+    left: 0.25rem;
+    transform: translateX(0);
+    height: 100%;
+  }
 
-.horse-lane-item__horse-icon {
-  transform: scaleX(-1);
-  height: 100%;
-  display: flex;
-  align-items: flex-end;
+  &__horse-icon {
+    transform: scaleX(-1);
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+  }
+
+  &__horse-runner--running {
+    animation-name: run;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+  }
+
+  &__horse-runner--paused {
+    animation-play-state: paused;
+  }
 }
 
 @keyframes run {
@@ -115,15 +125,5 @@ const onFinish = () => {
   to {
     left: calc(100% - 2.5rem); /* 2.5rem is the width of the horse icon */
   }
-}
-
-.horse-lane-item__horse-runner--running {
-  animation-name: run;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
-}
-
-.horse-lane-item__horse-runner--paused {
-  animation-play-state: paused;
 }
 </style>

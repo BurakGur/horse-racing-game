@@ -52,19 +52,19 @@ const toggleStartPause = () => {
     align-items: flex-start;
     gap: 0.5rem;
   }
-}
 
-.header__logo {
-  width: 120px;
-  height: auto;
-}
+  &__logo {
+    width: 120px;
+    height: auto;
+  }
 
-.header__nav {
-  display: flex;
-  gap: 1rem;
+  &__nav {
+    display: flex;
+    gap: 1rem;
 
-  @include respond-to(md) {
-    width: 100%;
+    @include respond-to(md) {
+      width: 100%;
+    }
   }
 }
 </style>
