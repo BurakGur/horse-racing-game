@@ -1,5 +1,5 @@
 <template>
-  <div class="horse-list-item">
+  <div class="horse-list-item" :class="{ 'horse-list-item--winner': isWinner }">
     <span v-if="order" class="horse-list-item__order">{{ order }}.</span>
     <span class="horse-list-item__name">{{ horse.name }}</span>
     <span class="horse-list-item__color" :style="{ backgroundColor: horse.colorHex }" />
@@ -12,6 +12,7 @@ import type { Horse } from '@/types'
 interface Props {
   horse: Horse
   order?: number
+  isWinner?: boolean
 }
 
 defineProps<Props>()
@@ -27,6 +28,10 @@ defineProps<Props>()
   background-color: var(--color-gray-50);
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
+
+  &--winner {
+    background-color: var(--color-green-100);
+  }
 
   &__order {
     font-weight: 700;

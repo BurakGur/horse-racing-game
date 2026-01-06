@@ -19,10 +19,10 @@
 </template>
 
 <script setup lang="ts">
-import Header from '../components/Header.component.vue'
-import HorseList from '../components/HorseList.component.vue'
-import ProgramList from '../components/ProgramList.component.vue'
-import ResultList from '../components/ResultList.component.vue'
+import Header from '../components/Header/Header.component.vue'
+import HorseList from '../components/List/HorseList.component.vue'
+import ProgramList from '../components/List/ProgramList.component.vue'
+import ResultList from '../components/List/ResultList.component.vue'
 import RaceTrack from '../components/RaceTrack.component.vue'
 </script>
 

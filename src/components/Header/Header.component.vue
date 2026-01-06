@@ -13,7 +13,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { useStore } from '@/store'
-import Button from '@/components/Button.component.vue'
+import Button from '@/components/Button/Button.component.vue'
 
 const store = useStore()
 const isRacing = computed(() => store.getters.isRacing)
