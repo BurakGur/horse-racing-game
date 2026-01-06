@@ -1,7 +1,7 @@
 <template>
   <div class="section-card">
     <div class="section-card__title">{{ title }}</div>
-    <div class="section-card__content"><slot /></div>
+    <div class="section-card__content hide-scrollbar"><slot /></div>
   </div>
 </template>
 

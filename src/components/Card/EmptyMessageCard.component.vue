@@ -1,6 +1,6 @@
 <template>
   <div class="empty-message-card">
-    <slot>{{ message }}</slot>
+    {{ message }}
   </div>
 </template>
 

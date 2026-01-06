@@ -1,6 +1,6 @@
 <template>
   <header class="header">
-    <img class="header__logo" src="../assets/images/horsenow-logo.svg" alt="horsenow" />
+    <img class="header__logo" src="../../assets/images/horsenow-logo.svg" alt="horsenow" />
     <nav class="header__nav">
       <Button variant="primary" @click="handleGenerateProgram">Generate Program</Button>
       <Button variant="secondary" @click="toggleStartPause">
