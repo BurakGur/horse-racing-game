@@ -27,11 +27,18 @@ import RaceTrackCard from '../components/Card/RaceTrackCard.component.vue'
 </script>
 
 <style scoped lang="scss">
+@use '@/assets/style/mixin/media-query.scss' as *;
+
 .main-layout {
   display: flex;
   flex-direction: column;
   height: 100vh;
   max-height: 100vh;
+
+  @include respond-to(md) {
+    height: auto;
+    max-height: none;
+  }
 }
 
 .main-layout__container {
@@ -41,25 +48,45 @@ import RaceTrackCard from '../components/Card/RaceTrackCard.component.vue'
   flex: 1;
   padding: 0 1.5rem 1.5rem;
   gap: 1rem;
+
+  @include respond-to(md) {
+    flex-direction: column;
+    overflow: scroll;
+  }
 }
 
 .main__horse-list {
   max-width: 25%;
   flex: 1;
-  max-height: 100%;
+
+  @include respond-to(md) {
+    max-width: 100%;
+  }
 }
 
 .main__race-track {
   flex: 1;
+
+  @include respond-to(md) {
+    width: 100%;
+  }
 }
 
 .main__program-list {
   max-width: 15%;
   flex: 1;
+
+  @include respond-to(md) {
+    max-width: 100%;
+  }
 }
 
 .main__result-list {
   max-width: 15%;
   flex: 1;
+
+  @include respond-to(md) {
+    max-width: 100%;
+  }
 }
 </style>

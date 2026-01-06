@@ -31,9 +31,15 @@ const currentRoundNo = computed(() => store.state.currentRoundNo)
 </script>
 
 <style scoped lang="scss">
+@use '@/assets/style/mixin/media-query.scss' as *;
+
 .program-list {
   display: flex;
   flex-direction: column;
+
+  @include respond-to(md) {
+    max-height: 20rem;
+  }
 
   &__horses {
     display: flex;

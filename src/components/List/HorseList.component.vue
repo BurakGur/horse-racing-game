@@ -35,13 +35,9 @@ const horses = computed(() => store.state.allHorses)
 </script>
 
 <style scoped lang="scss">
-.horse-list {
-  background-color: var(--color-white);
-  border-radius: 0.75rem;
-  border: 1px solid var(--color-gray-200);
-  height: 100%;
-  overflow: hidden;
+@use '@/assets/style/mixin/media-query.scss' as *;
 
+.horse-list {
   &__title {
     font-size: var(--text-base);
     font-weight: 700;
@@ -55,6 +51,10 @@ const horses = computed(() => store.state.allHorses)
   &__table-wrapper {
     overflow: auto;
     height: 100%;
+
+    @include respond-to(md) {
+      max-height: 20rem;
+    }
   }
 
   &__table-body {

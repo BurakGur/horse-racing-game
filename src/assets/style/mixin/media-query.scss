@@ -1,0 +1,9 @@
+$breakpoint-md: 1080px;
+
+@mixin respond-to($size) {
+  @if $size == md {
+    @media (max-width: $breakpoint-md) {
+      @content;
+    }
+  }
+}

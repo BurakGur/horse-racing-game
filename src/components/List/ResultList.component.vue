@@ -32,9 +32,15 @@ const results = computed(() => store.state.results)
 </script>
 
 <style scoped lang="scss">
+@use '@/assets/style/mixin/media-query.scss' as *;
+
 .result-list {
   display: flex;
   flex-direction: column;
+
+  @include respond-to(md) {
+    max-height: 20rem;
+  }
 
   &__round-number {
     font-weight: 600;

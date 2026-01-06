@@ -19,6 +19,8 @@ withDefaults(defineProps<Props>(), {
 </script>
 
 <style scoped lang="scss">
+@use '@/assets/style/mixin/media-query.scss' as *;
+
 .button {
   display: flex;
   align-items: center;
@@ -34,6 +36,10 @@ withDefaults(defineProps<Props>(), {
     background-color 0.3s ease,
     color 0.3s ease,
     opacity 0.3s ease;
+
+  @include respond-to(md) {
+    width: 100%;
+  }
 
   &:hover {
     opacity: 0.8;
