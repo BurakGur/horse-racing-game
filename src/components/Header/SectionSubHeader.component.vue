@@ -10,11 +10,12 @@
 <script setup lang="ts">
 interface Props {
   title: string
-  badge: string
+  badge?: string
   isActive?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
+  badge: '',
   isActive: false,
 })
 </script>

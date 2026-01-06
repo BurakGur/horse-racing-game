@@ -1,5 +1,5 @@
 <template>
-  <button :class="['button', `button--${variant}`]" :type="type">
+  <button :class="['button', `button--${variant}`]" :type="type" :disabled="disabled">
     <slot />
   </button>
 </template>
@@ -8,11 +8,13 @@
 interface Props {
   variant?: 'primary' | 'secondary'
   type?: 'button' | 'submit' | 'reset'
+  disabled?: boolean
 }
 
 withDefaults(defineProps<Props>(), {
   variant: 'primary',
   type: 'button',
+  disabled: false,
 })
 </script>
 
@@ -35,6 +37,11 @@ withDefaults(defineProps<Props>(), {
 
   &:hover {
     opacity: 0.8;
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    pointer-events: none;
   }
 
   &--primary {

@@ -1,7 +1,6 @@
 <template>
-  <div class="horse-list">
-    <h2 class="horse-list__title">HORSE LIST</h2>
-    <div class="horse-list__table-wrapper">
+  <SectionCard title="HORSE LIST">
+    <div class="horse-list__table-wrapper hide-scrollbar">
       <table class="horse-list__table" v-if="horses.length > 0">
         <thead>
           <tr>
@@ -19,13 +18,14 @@
           </tr>
         </tbody>
       </table>
-      <div v-else class="horse-list__empty-message">No horses found. Please generate a program first.</div>
+      <EmptyMessageCard v-else message="No horses found. Please generate a program first." />
     </div>
-  </div>
+  </SectionCard>
 </template>
 
 <script setup lang="ts">
-import { HORSE_NAMES, HORSE_COLORS } from '@/constants/horse.constant'
+import SectionCard from '@/components/Card/SectionCard.component.vue'
+import EmptyMessageCard from '@/components/Card/EmptyMessageCard.component.vue'
 import { useStore } from '@/store'
 import { computed } from 'vue'
 

@@ -3,8 +3,8 @@
     <img class="header__logo" src="../../assets/images/horsenow-logo.svg" alt="horsenow" />
     <nav class="header__nav">
       <Button variant="primary" @click="handleGenerateProgram">Generate Program</Button>
-      <Button variant="secondary" @click="toggleStartPause">
-        {{ isRacing ? (isPaused ? 'Resume' : 'Pause') : 'Start Race' }}
+      <Button variant="secondary" @click="toggleStartPause" :disabled="!isProgramGenerated">
+        {{ isRacing ? (isPaused ? 'Resume' : 'Pause') : 'Start New Race' }}
       </Button>
     </nav>
   </header>
@@ -16,8 +16,12 @@ import { useStore } from '@/store'
 import Button from '@/components/Button/Button.component.vue'
 
 const store = useStore()
-const isRacing = computed(() => store.getters.isRacing)
+
+const isRacing = computed(() => store.state.isRacing)
 const isPaused = computed(() => store.state.isPaused)
+const isProgramGenerated = computed(() => store.state.isProgramGenerated)
+const currentRound = computed(() => store.getters.currentRound)
+const totalRounds = computed(() => store.getters.totalRounds)
 
 const handleGenerateProgram = () => {
   store.dispatch('generateNewProgram')

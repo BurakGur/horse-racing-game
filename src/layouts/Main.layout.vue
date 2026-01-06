@@ -6,7 +6,7 @@
         <HorseList />
       </div>
       <div class="main__race-track">
-        <RaceTrack />
+        <RaceTrackCard />
       </div>
       <div class="main__program-list">
         <ProgramList />
@@ -23,7 +23,7 @@ import Header from '../components/Header/Header.component.vue'
 import HorseList from '../components/List/HorseList.component.vue'
 import ProgramList from '../components/List/ProgramList.component.vue'
 import ResultList from '../components/List/ResultList.component.vue'
-import RaceTrack from '../components/RaceTrack.component.vue'
+import RaceTrackCard from '../components/Card/RaceTrackCard.component.vue'
 </script>
 
 <style scoped lang="scss">
