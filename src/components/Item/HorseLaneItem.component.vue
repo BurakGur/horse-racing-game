@@ -24,7 +24,7 @@
 
 <script setup lang="ts">
 import { toRefs } from 'vue'
-import type { Horse } from '@/store/types'
+import type { Horse } from '@/types'
 import IconHorse from '@/assets/icons/IconHorse.vue'
 
 const props = defineProps<{

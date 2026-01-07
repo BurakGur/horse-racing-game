@@ -10,7 +10,7 @@
         v-for="(horse, index) in currentRace.horses"
         :key="horse.id"
         :horse="horse"
-        :lane-number="index + 1"
+        :lane-number="Number(index) + 1"
         :is-racing="isRacing"
         :is-paused="isPaused"
         :duration="durations[horse.id] || 0"
